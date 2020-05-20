@@ -8,6 +8,6 @@ The program will also print a summary of the results which includes the orbital 
 
 **Notice**: The current version (v1.0) only supports singlet states, keep an eye on this repository for an updated version!
 
-*usage * <code> python corresponding_orbitals_v1.py filename.fchk </code> 
+*usage* <code> python corresponding_orbitals_v1.py filename.fchk </code> 
 
 
