@@ -14,4 +14,4 @@ The program will also print a summary of the results which includes the orbital 
 **References**
 1. F. Neese, "Definition of corresponding orbitals and the diradical character in broken symmetry DFT calculations on spin coupled systems", _J. Phys. Chem. Solids_ **65**, 781 (2004). DOI: [10.1016/j.jpcs.2003.11.015](https://dx.doi.org/10.1016/j.jpcs.2003.11.015)
 2. A. T. Amos and G. G. Hall, "Single Determinant Wave Functions", _Proc. R. Soc. London, Ser. A_ **263**, 483-493 (1961). Online at https://www.jstor.org/stable/2414327
-3. H. King and R. Stanton, "Corresponding Orbitals and the Nonorthogonality Problem in Molecular Quantum Mechanics" J. Chem. Phys. 47, 1936 (1967); https://doi.org/10.1063/1.1712221
+3. H. King and R. Stanton, "Corresponding Orbitals and the Nonorthogonality Problem in Molecular Quantum Mechanics" *J. Chem. Phys.* **47**, 1936 (1967); DOI: [10.1063/1.1712221]
