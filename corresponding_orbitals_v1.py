@@ -132,10 +132,15 @@ WriteMOs(filename1,filename3,Ca_Biorth,Cb_Biorth,sigma_alpha_final,sigma_beta_fi
 
 listoftitles = ["Orbital Number", "Occupancy", "Occ. abOV"]
 
+print "\nLegend:"
+print ('{:<15s}{:<20s}'.format("Docc.", "Doubly Occupied"))
+print ('{:<15s}{:<20s}'.format("Asing.", "Alpha Singly Occupied"))
+print ('{:<15s}{:<20s}'.format("Bsing.", "Beta Singly Occupied"))
+print ('{:<15s}{:<20s}'.format("abOV", "Alpha - Beta Overlap"))
+print "\n"
 print "-------------------------------------"
 print "Final Corresponding orbitals results"
 print "-------------------------------------"
-
 print "Alpha Corresponding orbitals"
 for i in range(0,NAlpha_1+1):
     if (i==0):
