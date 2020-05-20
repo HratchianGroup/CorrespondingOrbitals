@@ -8,4 +8,9 @@ The program will also print a summary of the results which includes the orbital 
 
 **Notice**: The current version (v1.0) only supports singlet states, keep an eye on this repository for an updated version!
 
-**Usage**: <code> python corresponding_orbitals_v1.py filename.fchk </code> 
+**Usage**: <code> python corresponding_orbitals_v1.py filename.fchk </code>
+
+---
+**References**
+1. F. Neese, "Definition of corresponding orbitals and the diradical character in broken symmetry DFT calculations on spin coupled systems", _J. Phys. Chem. Solids_ **65**, 781 (2004). DOI: [10.1016/j.jpcs.2003.11.015](https://dx.doi.org/10.1016/j.jpcs.2003.11.015)
+2. A. T. Amos and G. G. Hall, "Single Determinant Wave Functions", _Proc. R. Soc. London, Ser. A_ **263**, 483-493 (1961). Online at https://www.jstor.org/stable/2414327
