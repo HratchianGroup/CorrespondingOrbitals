@@ -23,7 +23,8 @@ print "University of California, Merced"
 print "Last edited by Hassan Harb, May 29, 2020"
 print "------------------------------------- \n"
 
-print "Notice: This version only works for singlet states!"
+print "Notice: This version works for both closed shell and open shell states"
+print "        The current version only works over occupied orbitals"
 print "Number of Basis functions =", NBasis
 print "Number of Alpha electrons =", NAlpha_1
 print "Number of Beta  electrons =", NBeta_1
@@ -57,7 +58,6 @@ Cb_Biorth = OVMerge(Cb_1_O_Biorth,Cb_1_V_Biorth,NBeta_1,NBasis)
 
 if (NAlpha_1 != NBeta_1):
    Sigma_alpha_nulls = np.zeros(NAlpha_1-NBeta_1)
-   print "Sigma alpha nulls =", Sigma_alpha_nulls
    Sigma_alpha = np.concatenate((Sigma_OO,Sigma_alpha_nulls))
    Sigma_alpha = np.concatenate((Sigma_alpha,Sigma_VV))
    Sigma_beta = np.concatenate((Sigma_OO,Sigma_alpha_nulls))
@@ -67,14 +67,9 @@ else:
    Sigma_alpha = np.concatenate((Sigma_OO,Sigma_VV))
    Sigma_beta = np.concatenate((Sigma_OO,Sigma_VV))
 
-print "lengths of sigma alpha and sigma beta =", np.size(Sigma_alpha), np.size(Sigma_beta)
-
-
 array_alpha = np.zeros(NBasis)
 array_beta = np.zeros(NBasis)
 thresh_eigval = 0.01
-
-print "NBasis = ", NBasis
 
 for i in range (0,NAlpha_1):
     if (Sigma_alpha[i] < thresh_eigval):
@@ -87,9 +82,6 @@ for i in range (0,NBeta_1):
 
 array_alpha_sum = np.sum(array_alpha)
 array_beta_sum  = np.sum(array_beta)
-
-print "Array ALpha sum =", array_alpha_sum
-print "Array Beta sum =", array_beta_sum
 
 Ca_nulls = np.zeros((NBasis,array_alpha_sum))
 Cb_nulls = np.zeros((NBasis,array_beta_sum))
