@@ -60,13 +60,14 @@ if (NAlpha_1 != NBeta_1):
    print "Sigma alpha nulls =", Sigma_alpha_nulls
    Sigma_alpha = np.concatenate((Sigma_OO,Sigma_alpha_nulls))
    Sigma_alpha = np.concatenate((Sigma_alpha,Sigma_VV))
+   Sigma_beta = np.concatenate((Sigma_OO,Sigma_alpha_nulls))
+   Sigma_beta = np.concatenate((Sigma_beta,Sigma_VV))
 
 else:
    Sigma_alpha = np.concatenate((Sigma_OO,Sigma_VV))
+   Sigma_beta = np.concatenate((Sigma_OO,Sigma_VV))
 
-Sigma_beta = np.concatenate((Sigma_OO,Sigma_VV))
-
-print "lengths of sigma alpha and sigma beta =",
+print "lengths of sigma alpha and sigma beta =", np.size(Sigma_alpha), np.size(Sigma_beta)
 
 
 array_alpha = np.zeros(NBasis)
@@ -87,6 +88,9 @@ for i in range (0,NBeta_1):
 array_alpha_sum = np.sum(array_alpha)
 array_beta_sum  = np.sum(array_beta)
 
+print "Array ALpha sum =", array_alpha_sum
+print "Array Beta sum =", array_beta_sum
+
 Ca_nulls = np.zeros((NBasis,array_alpha_sum))
 Cb_nulls = np.zeros((NBasis,array_beta_sum))
 j = 0
@@ -101,42 +105,21 @@ for i in range(0,NBasis):
        Cb_nulls[:,k] = Cb_Biorth[:,i]
        k = k + 1
 
+Sigma_alpha = np.sqrt(Sigma_alpha)
+Sigma_beta = np.sqrt(Sigma_beta)
 
-if (array_alpha_sum > 0):
-   Sigma_null, U_null, V_null, D_null = Biorthog(Ca_nulls,Cb_nulls,S,-1)
-   Sigma_null = np.sqrt(Sigma_null)
-   Sigma_alpha = np.sqrt(Sigma_alpha)
-   Sigma_beta = np.sqrt(Sigma_beta)
-
-   Ca_nulls = np.dot(Ca_nulls,np.transpose(V_null))*np.linalg.det(np.transpose(V_null))
-   Cb_nulls = np.dot(Cb_nulls,U_null)*np.linalg.det(np.transpose(U_null))
-
-   Ca_Biorth_final = np.zeros((NBasis,NBasis))
-   Cb_Biorth_final = np.zeros((NBasis,NBasis))
-
-   sigma_alpha_final = np.zeros(NBasis)
-   sigma_beta_final = np.zeros(NBasis)
-
-   p = 0
-   q = 0
-   for i in range(0,NBasis):
-       if (array_alpha[i] == 0):
-          Ca_Biorth_final[:,i] = Ca_Biorth[:,i]
-       else:
-          Ca_Biorth_final[:,i] = Ca_nulls[:,p]
-          p = p + 1
-
-       if (array_beta[i] == 0):
-          Cb_Biorth_final[:,i] = Cb_Biorth[:,i]
-       else:
-          Cb_Biorth_final[:,i] = Cb_nulls[:,q]
-          q = q+1
-else:
-   Ca_Biorth_final = Ca_Biorth
-   Cb_Biorth_final = Cb_Biorth
+Ca_Biorth_final = Ca_1
+Cb_Biorth_final = Cb_1
 
 sigma_alpha_final = Sigma_alpha
 sigma_beta_final = Sigma_beta
+
+for i in range(0,NAlpha_1):
+          Ca_Biorth_final[:,i] = Ca_Biorth[:,i]
+
+for i in range(0,NBeta_1):
+          Cb_Biorth_final[:,i] = Cb_Biorth[:,i]
+
 
 filename3 = "CorrespondingOrbitals-"+filename1
 
