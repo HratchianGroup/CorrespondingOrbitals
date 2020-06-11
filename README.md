@@ -8,7 +8,12 @@ The program will also print a summary of the results which includes the orbital 
 
 **Notice**: The current version (v1.1) supports closed and open shell states. However, it only does the analysis over occupied orbitals. Keep an eye on this repository for an updated version!
 
-**Usage**: <code> python corresponding_orbitals_v1.py filename.fchk </code>
+**Usage**: <code> python corresponding_orbitals_v1.py filename.fchk </code> 
+
+For QChem fchk files:
+
+**Usage**: <code> python corresponding_orbitals_v1_QChem.py filename.fchk </code> 
+
 
 ---
 **References**
